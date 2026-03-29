@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+            <!-- Google Fonts -->
+                        <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header> 
+
+  <!-- NAV -->
+  <nav>
+    <h3 class="pag">portafolio</h3>
+    <div class="nav-links">
+      <a href="index.html" class="pag">Inicio</a>
+      <a href="about.html" class="pag">Sobre mi</a>
+      <a href="proyecto1.html" class="pag">Trabajos</a>
+    </div>
+      <!-- Botón hamburguesa -->
+  <div class="menu-toggle" id="menu-toggle">
+    ☰
+  </div>
+  </nav>
+
+</header>
+
+<body>
+
+<!-- HERO -->
+<section class="project-hero">
+  <h1>Proyecto Uno</h1>
+  <p>Restauración + levantamiento arquitectonico</p>
+</section>
+
+<!-- INFO -->
+<section class="project-info">
+
+  <div class="info">
+    <h3>Rol</h3>
+    <p>Diseño, dibujo y levantamiento arquitectonico de planos y 3D</p>
+  </div>
+
+  <div class="info">
+    <h3>Año</h3>
+    <p>2023</p>
+  </div>
+
+  <div class="info">
+    <h3>Herramientas</h3>
+    <p>AutoCad, Revit, PhotoShop</p>
+  </div>
+
+</section>
+
+<!-- DESCRIPCIÓN -->
+<section class="project-description">
+  <p>
+El proyecto se desarrolló para el levantamiento y el mantenimiento de la iglesia. La iglesia de las Aguas es clasificada como patrimonio cultural de la ciudad por lo que se hizo un proyecto para actualizar los planos y alzados del lugar, el propósito es tener los documentos y bases completas para una restauración de las piezas de arte en el lugar, arquitectura histórica y la historia cultural del lugar.
+  </p>
+</section>
+
+<!-- IMÁGENES -->
+<section class="project-gallery-2">
+
+  <div class="gallery-item" onclick="openLightbox(0)">
+    <img src="img/img1.jpg">
+    <h3>Plano de urbanismo</h3>
+  </div>
+
+  <div class="gallery-item" onclick="openLightbox(1)">
+    <img src="img/img2.jpg">
+    <h3>Cortes A - E</h3>
+  </div>
+
+  <div class="gallery-item" onclick="openLightbox(2)">
+    <img src="img/img3.jpg">
+    <h3>Plano general</h3>
+  </div>
+
+  <div class="gallery-item" onclick="openLightbox(3)">
+    <img src="img/img4.jpg">
+    <h3>Plano de Materiales</h3>
+  </div>
+
+  <div class="gallery-item" onclick="openLightbox(4)">
+    <img src="img/img5.jpg">
+    <h3>Cortes F - J</h3>
+  </div>
+
+  <div class="gallery-item" onclick="openLightbox(5)">
+    <img src="img/img6.jpg">
+    <h3>Fachadas principales</h3>
+  </div>
+
+</section>
+
+
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" onclick="outsideClick(event)">
+  <span class="close" onclick="closeLightbox()">×</span>
+  <img id="lightbox-img">
+
+  <button class="prev" onclick="changeSlide(-1)">‹</button>
+  <button class="next" onclick="changeSlide(1)">›</button>
+</div>
+
+</section>
+
+<!-- RESULTADO -->
+<section class="project-result">
+  <h2>Resultado final</h2>
+  <p>
+    El resultado es una propuesta fiel a la realidad, con un arepresentación acorde a la normativa actual y con propuestas de recuperación que preserven el patrimonio.
+  </p>
+</section>
+
+<!-- BOTÓN -->
+<div class="project-nav">
+
+  <a href="index.html" class="nav-btn">
+    ← Volver al inicio
+  </a>
+
+  <a href="proyecto2.html" class="nav-btn">
+    Siguiente proyecto →
+  </a>
+
+</div>
+
+</body>
+</html>
+
+<script>
+const toggle = document.getElementById("menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+toggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+</script>
+
+<script>
+const images = [
+  "img/img1.jpg",
+  "img/img2.jpg",
+  "img/img3.jpg",
+  "img/img4.jpg",
+  "img/img5.jpg",
+  "img/img6.jpg"
+];
+
+let currentIndex = 0;
+
+function openLightbox(index) {
+  currentIndex = index;
+  document.getElementById("lightbox").style.display = "flex";
+  document.getElementById("lightbox-img").src = images[index];
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+
+function changeSlide(direction) {
+  currentIndex += direction;
+
+  if (currentIndex < 0) currentIndex = images.length - 1;
+  if (currentIndex >= images.length) currentIndex = 0;
+
+  document.getElementById("lightbox-img").src = images[currentIndex];
+}
+</script>
+
+<script>
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") {
+    closeLightbox();
+  }
+});
+</script>
+
+</body>
+
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- Nombre -->
+    <div class="footer-left">
+      <h3>Diana</h3>
+      <p>Diseñadora & Creativa</p>
+    </div>
+
+    <!-- Links -->
+    <div class="footer-icons">
+      <a href="https://www.instagram.com"><i class="bi bi-instagram"></i></a>
+      <a href="https://co.linkedin.com/"><i class="bi bi-linkedin"></i></a>
+      <a href="https://accounts.google.com/login?hl=es"><i class="bi bi-envelope"></i></a>
+    </div>
+
+      <!-- TELÉFONO -->
+  <span class="phone">
+    <i class="bi bi-telephone"></i> +57 300 123 4567
+  </span>
+
+    </div>
+
+  </div>
+
+</footer>
+
+</html>

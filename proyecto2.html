@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+            <!-- Google Fonts -->
+                        <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header> 
+
+  <!-- NAV -->
+  <nav>
+    <h3 class="pag">portafolio</h3>
+    <div class="nav-links">
+      <a href="index.html" class="pag">Inicio</a>
+      <a href="about.html" class="pag">Sobre mi</a>
+      <a href="proyecto1.html" class="pag">Trabajos</a>
+    </div>
+      <!-- Botón hamburguesa -->
+  <div class="menu-toggle" id="menu-toggle">
+    ☰
+  </div>
+  </nav>
+
+</header>
+
+<body>
+
+<!-- HERO -->
+<section class="project-hero">
+  <h1>Poyecto Dos</h1>
+  <p>Proyecto personal</p>
+</section>
+
+<!-- INFO -->
+<section class="project-info">
+
+  <div class="info">
+    <h3>Rol</h3>
+    <p>Branding + Desarrollo de un album musical</p>
+  </div>
+
+  <div class="info">
+    <h3>Año</h3>
+    <p>2026</p>
+  </div>
+
+  <div class="info">
+    <h3>Herramientas</h3>
+    <p>Photoshop</p>
+  </div>
+
+</section>
+
+<!-- DESCRIPCIÓN -->
+<section class="project-description">
+  <p>
+    Para el desarrollo de un proyecto personal, se hizo el desarrollo de un álbum en solitario para uno de los miembros del grupo de K-pop  ZB1. Tomando en cuenta un concepto único para este miembro en especifico y que pueda desarrollarse y diferenciarse de otros miembros, con ello se desarrollaron las inclusiones usuales de un album en K-pop y regalos especiales.
+  </p>
+</section>
+
+<section class="gs9-container">
+
+  <!-- IZQUIERDA -->
+  <div class="gs9-main" onclick="gs9_openLightbox(0)">
+    <img src="img/imagen1.png">
+    <p>Proyecto Principal</p>
+  </div>
+
+  <!-- DERECHA -->
+  <div class="gs9-grid">
+
+    <div class="gs9-card" onclick="gs9_openLightbox(1)">
+      <img src="img/imagen2.png"><p>Detalles del album: portadas</p>
+    </div>
+
+    <div class="gs9-card" onclick="gs9_openLightbox(2)">
+      <img src="img/imagen3.png"><p>Detalles del album: CD cover</p>
+    </div>
+
+    <div class="gs9-card" onclick="gs9_openLightbox(3)">
+      <img src="img/imagen4.png"><p>Detalles del album: photocards</p>
+    </div>
+
+    <div class="gs9-card" onclick="gs9_openLightbox(4)">
+      <img src="img/imagen5.png"><p>Detalles del album: posters</p>
+    </div>
+
+    <div class="gs9-card" onclick="gs9_openLightbox(5)">
+      <img src="img/imagen6.png"><p>Detalles del album: stickers</p>
+    </div>
+
+    <div class="gs9-card" onclick="gs9_openLightbox(6)">
+      <img src="img/imagen7.png"><p>Detalles del album: fotos conceptuales</p>
+    </div>
+
+    <div class="gs9-card" onclick="gs9_openLightbox(7)">
+      <img src="img/imagen8.png"><p>Detalles del album: postcard</p>
+    </div>
+
+    <div class="gs9-card" onclick="gs9_openLightbox(8)">
+      <img src="img/imagen9.png"><p>Detalles del album: regalo especial</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- LIGHTBOX -->
+<div id="gs9-lightbox" class="gs9-lightbox">
+  <span class="gs9-close" onclick="gs9_closeLightbox()">×</span>
+  <img id="gs9-lightbox-img">
+
+  <button class="gs9-prev" onclick="gs9_changeSlide(-1)">‹</button>
+  <button class="gs9-next" onclick="gs9_changeSlide(1)">›</button>
+</div>
+
+</section>
+
+<!-- RESULTADO -->
+<section class="project-result">
+  <h2>Resultado final</h2>
+  <p>
+    El resultado es una propuesta visual especifica y diseñada para poder explorar conceptos en su musica y su desarrollo personal.
+  </p>
+</section>
+
+<!-- BOTÓN -->
+<div class="project-nav">
+
+  <a href="index.html" class="nav-btn">
+    ← Volver al inicio
+  </a>
+
+  <a href="proyecto3.html" class="nav-btn">
+    Siguiente proyecto →
+  </a>
+
+</div>
+
+</body>
+</html>
+
+<script>
+const toggle = document.getElementById("menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+toggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+</script>
+
+<script>
+const gs9_images = [
+  "img/imagen1.png",
+  "img/imagen2.png",
+  "img/imagen3.png",
+  "img/imagen4.png",
+  "img/imagen5.png",
+  "img/imagen6.png",
+  "img/imagen7.png",
+  "img/imagen8.png",
+  "img/imagen9.png"
+];
+
+let gs9_index = 0;
+
+function gs9_openLightbox(index) {
+  gs9_index = index;
+  document.getElementById("gs9-lightbox").style.display = "flex";
+  document.getElementById("gs9-lightbox-img").src = gs9_images[index];
+}
+
+function gs9_closeLightbox() {
+  document.getElementById("gs9-lightbox").style.display = "none";
+}
+
+function gs9_changeSlide(direction) {
+  gs9_index += direction;
+
+  if (gs9_index < 0) gs9_index = gs9_images.length - 1;
+  if (gs9_index >= gs9_images.length) gs9_index = 0;
+
+  document.getElementById("gs9-lightbox-img").src = gs9_images[gs9_index];
+}
+
+/* ESC */
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") {
+    gs9_closeLightbox();
+  }
+});
+</script>
+</body>
+
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- Nombre -->
+    <div class="footer-left">
+      <h3>Diana</h3>
+      <p>Diseñadora & Creativa</p>
+    </div>
+
+    <!-- Links -->
+    <div class="footer-icons">
+      <a href="https://www.instagram.com"><i class="bi bi-instagram"></i></a>
+      <a href="https://co.linkedin.com/"><i class="bi bi-linkedin"></i></a>
+      <a href="https://accounts.google.com/login?hl=es"><i class="bi bi-envelope"></i></a>
+    </div>
+
+      <!-- TELÉFONO -->
+  <span class="phone">
+    <i class="bi bi-telephone"></i> +57 300 123 4567
+  </span>
+
+    </div>
+
+  </div>
+
+</footer>
+
+</html>
